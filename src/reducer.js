@@ -2,10 +2,12 @@
 
 let defaultState = {
     //our centrailized state goes here
-    userName : '',
-    userColor: '',
-
-
+    //THE UNITED STATES
+    userName : '~test~',
+    userColor : 'blue',
+    userFont : 'Comic Sans MS", cursive, sans-serif',
+    MadLibCreateClick: false,
+    MadLibViewClick: false
 }
 
 let reducer = (prevState=defaultState, action) => {
@@ -15,6 +17,9 @@ let reducer = (prevState=defaultState, action) => {
     //use prevstate to add chagnge state.
     //make sure your payload keys are in order
         switch(action.type){
+            case 'CREATECLICK':
+                return console.log ("clicked"), 
+                {...prevState, MadLibCreateClick: !prevState.MadLibCreateClick}
             case 'TEST':
               return console.log ('testing 1.2.3.')
                 //to use () => this.dispatch.('TEST')
@@ -22,7 +27,7 @@ let reducer = (prevState=defaultState, action) => {
               return console.log ('state : ${action.payload}')
                 // to use  (event) => this.dispatch(`FORM_TEST`, event.target.value)
             case `ADD_TEXT`:
-            //   return console.log ({...prevState, text: "", thangs=[...this.state.things, this.state.text]})
+                //   return console.log ({...prevState, text: "", thangs=[...this.state.things, this.state.text]})
                 //this is adding a text to state
                 //reset your text state here if you want to. (text : "")
                 //to use ()=> this.dispatch('ADD_TEXT')
