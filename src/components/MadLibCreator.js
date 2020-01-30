@@ -13,7 +13,7 @@ class MadLibCreator extends React.Component{
 }
 
 const MSP = (state) => {
-    console.log(`MSP`,state)
+    // console.log(`MSP`,state)
     return {
         userName:  state.userName,
 
@@ -21,8 +21,10 @@ const MSP = (state) => {
   }
   
 const MDP = (dispatch) => {
-    console.log(`MDP`, dispatch) 
-    return {}
+    // console.log(`MDP`, dispatch) 
+    return {
+
+    }
   }
   
 export default connect(MSP, MDP)(MadLibCreator);

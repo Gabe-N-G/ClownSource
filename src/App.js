@@ -1,6 +1,5 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
 import { connect } from 'react-redux';
 import NavBar from './components/NavBar'
 import MainContainer from './Containers/MainContainer'
@@ -37,7 +36,7 @@ function App() {
     <div class='Container'>
      <NavBar/>
       <div>
-        <MainContainer/>
+        {/* <MainContainer/> */}
       </div>
     </div>
   );

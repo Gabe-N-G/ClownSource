@@ -14,7 +14,7 @@ class MainContainer extends React.Component{
 }
 
 const MSP = (state) => {
-    console.log(`MSP`,state)
+    // console.log(`MSP`,state)
     return {
         userName:  state.userName,
         formCreateClick: state.formCreateClick,
@@ -22,7 +22,7 @@ const MSP = (state) => {
   }
   
 const MDP = (dispatch) => {
-    console.log(`MDP`, dispatch) 
+    // console.log(`MDP`, dispatch) 
     return {}
   }
   
