@@ -2,6 +2,9 @@
 
 let defaultState = {
     //our centrailized state goes here
+    userName : '',
+    userColor: '',
+
 
 }
 
@@ -19,7 +22,7 @@ let reducer = (prevState=defaultState, action) => {
               return console.log ('state : ${action.payload}')
                 // to use  (event) => this.dispatch(`FORM_TEST`, event.target.value)
             case `ADD_TEXT`:
-              return console.log ({...prevState, text: "", thangs=[...this.state.things, this.state.text]})
+            //   return console.log ({...prevState, text: "", thangs=[...this.state.things, this.state.text]})
                 //this is adding a text to state
                 //reset your text state here if you want to. (text : "")
                 //to use ()=> this.dispatch('ADD_TEXT')

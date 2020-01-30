@@ -1,15 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import { connect } from 'react-redux';
 // state = {
 
 // }
 
-dispatch = (type, payload) => {
-  let newState = this.reducer(type,payload)
-  this.setState(newState)
-}
+// dispatch = (type, payload) => {
+//   let newState = this.reducer(type,payload)
+//   this.setState(newState)
+// }
 
 
 // reducer = () => {
@@ -51,4 +51,14 @@ function App() {
   );
 }
 
-export default App;
+const MSP = (state) => {
+  console.log(`MSP`,state)
+  return {}
+}
+
+const MDP = (dispatch) => {
+  console.log(`MDP`, dispatch) 
+  return {}
+}
+
+export default connect(MSP, MDP)(App);
