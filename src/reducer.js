@@ -29,6 +29,7 @@ let reducer = (prevState=defaultState, action) => {
                         MadLibCreateClick: false
                         }
             case 'CREATESUBMIT':
+                // console.log("in reducer", action)
                 return  {...prevState,
                         selectForm: action.payload    
                         }

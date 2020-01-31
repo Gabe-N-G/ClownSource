@@ -29,7 +29,7 @@ class MadLibCreator extends React.Component{
                         <option value="Test">Test</option>
                       </select>
                     </label>
-                    <input type="submit" value="Submit" />
+                    <input type="submit" value="Send in the clowns" />
                   </form>
               
                     
@@ -50,7 +50,7 @@ const MDP = (dispatch) => {
     // console.log(`MDP`, dispatch) 
     return {
       view: () => dispatch({type: "VIEWCLICK"}),
-      handleSubmit:  (value) => ({type: "CREATESUBMIT", payload : value}),
+      handleSubmit:  (value) => dispatch({type: "CREATESUBMIT", payload : value}),
     }
   }
   
