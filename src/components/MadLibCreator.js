@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import {createSubmitCreator} from '../actionCreators'
 
 class MadLibCreator extends React.Component{
 
@@ -9,7 +10,6 @@ class MadLibCreator extends React.Component{
 
  handleChange = (e) =>{ 
   this.setState({value : e.target.value})
-  // console.log(e.target.value)
  }
 
   render(){
@@ -20,7 +20,6 @@ class MadLibCreator extends React.Component{
               <form onSubmit={e => {
                 e.preventDefault();
                 this.props.handleSubmit(this.state.value);
-                console.log(this.state)
                 }}>
                     <label>
                       Pick your template!
@@ -31,7 +30,7 @@ class MadLibCreator extends React.Component{
                     </label>
                     <input type="submit" value="Send in the clowns" />
                   </form>
-              
+                
                     
           </div>
       )
@@ -49,8 +48,7 @@ const MSP = (state) => {
 const MDP = (dispatch) => {
     // console.log(`MDP`, dispatch) 
     return {
-      view: () => dispatch({type: "VIEWCLICK"}),
-      handleSubmit:  (value) => dispatch({type: "CREATESUBMIT", payload : value}),
+      handleSubmit:  (value) => dispatch(createSubmitCreator(value)),
     }
   }
   

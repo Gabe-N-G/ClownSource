@@ -29,9 +29,9 @@ let reducer = (prevState=defaultState, action) => {
                         MadLibCreateClick: false
                         }
             case 'CREATESUBMIT':
-                // console.log("in reducer", action)
+                console.log("in reducer", action)
                 return  {...prevState,
-                        selectForm: action.payload    
+                        selectForm: action.payload.value    
                         }
             //   return console.log ('testing 1.2.3.')
             //     //to use () => this.dispatch.('TEST')

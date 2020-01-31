@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import {viewClickCreator, createClickCreator} from '../actionCreators'
 
 
 class Navbar extends React.Component{
@@ -23,8 +24,8 @@ const MSP = (state) => {
 const MDP = (dispatch) => {
     // console.log(`MDP`, dispatch)
     return {
-        create: () => dispatch({type: "CREATECLICK"}),
-        view: () => dispatch({type: "VIEWCLICK"})
+        create: () => dispatch(createClickCreator()),
+        view: () => dispatch(viewClickCreator())
     }
   }
   
