@@ -7,7 +7,8 @@ let defaultState = {
     userColor : 'blue',
     userFont : 'Comic Sans MS", cursive, sans-serif',
     MadLibCreateClick: false,
-    MadLibViewClick: false
+    MadLibViewClick: false,
+    SelectValue: ``
 }
 
 let reducer = (prevState=defaultState, action) => {
@@ -19,13 +20,18 @@ let reducer = (prevState=defaultState, action) => {
         switch(action.type){
             case 'CREATECLICK':
                 return {...prevState, 
-                        MadLibCreateClick: !prevState.MadLibCreateClick,
+                        MadLibCreateClick: true,
                         MadLibViewClick: false
                         }
             case 'VIEWCLICK':
                 return  {...prevState, 
-                        MadLibViewClick: !prevState.MadLibViewClick,
+                        MadLibViewClick: true,
                         MadLibCreateClick: false
+                        }
+            case 'CREATESUBMIT':
+                return {...prevState,
+
+                
                         }
             //   return console.log ('testing 1.2.3.')
             //     //to use () => this.dispatch.('TEST')
