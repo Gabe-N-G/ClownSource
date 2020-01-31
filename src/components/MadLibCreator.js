@@ -2,6 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux';
 
 class MadLibCreator extends React.Component{
+
+ 
+
   render(){
       return(
           <div class='Centerwindow'>
@@ -12,11 +15,9 @@ class MadLibCreator extends React.Component{
               <form onSubmit={this.handleSubmit}>
                     <label>
                       Pick your form!
-                      <select value={this.state.value} onChange={this.handleChange}>
-                        <option value="grapefruit">Grapefruit</option>
-                        <option value="lime">Lime</option>
-                        <option value="coconut">Coconut</option>
-                        <option value="mango">Mango</option>
+                      <select value={this.state.selectValue} onChange={this.handleChange}>
+                        <option value=""></option>
+                        <option value="Test">Test</option>
                       </select>
                     </label>
                     <input type="submit" value="Submit" />
@@ -32,6 +33,7 @@ const MSP = (state) => {
     // console.log(`MSP`,state)
     return {
         userName:  state.userName,
+        selectValue: state.selectValue,
     }
   }
   

@@ -8,7 +8,8 @@ let defaultState = {
     userFont : 'Comic Sans MS", cursive, sans-serif',
     MadLibCreateClick: false,
     MadLibViewClick: false,
-    SelectValue: ``
+    selectValue: '',
+    selectForm: ''
 }
 
 let reducer = (prevState=defaultState, action) => {
@@ -30,9 +31,15 @@ let reducer = (prevState=defaultState, action) => {
                         }
             case 'CREATESUBMIT':
                 return {...prevState,
-
+                        selectForm: action.payload.value
                 
                         }
+            case 'CREATECHANGE':
+                return {...prevState,
+
+
+                        }
+                    
             //   return console.log ('testing 1.2.3.')
             //     //to use () => this.dispatch.('TEST')
             // case `HANDLE_CHANGE`:
