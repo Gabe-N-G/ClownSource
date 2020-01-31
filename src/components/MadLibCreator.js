@@ -3,26 +3,35 @@ import { connect } from 'react-redux';
 
 class MadLibCreator extends React.Component{
 
- 
+ state={
+  value : ''
+ }
+
+ handleChange = (e) =>{ 
+  this.setState({value : e.target.value})
+  // console.log(e.target.value)
+ }
 
   render(){
+    console.log(this.props)
       return(
-          <div class='Centerwindow'>
-              
+          <div className='Centerwindow'>
               <p>  LETS PLAY A GAME {this.props.userName}</p>
-
-              <p>
-              <form onSubmit={this.handleSubmit}>
+              <form onSubmit={e => {
+                e.preventDefault();
+                this.props.handleSubmit(this.state.value);
+                console.log(this.state)
+                }}>
                     <label>
-                      Pick your form!
-                      <select value={this.state.selectValue} onChange={this.handleChange}>
+                      Pick your template!
+                      <select value={this.state.value} onChange={this.handleChange}>
                         <option value=""></option>
                         <option value="Test">Test</option>
                       </select>
                     </label>
                     <input type="submit" value="Submit" />
                   </form>
-              </p>
+              
                     
           </div>
       )
@@ -30,17 +39,18 @@ class MadLibCreator extends React.Component{
 }
 
 const MSP = (state) => {
-    // console.log(`MSP`,state)
+    console.log(`MSP`,state)
     return {
         userName:  state.userName,
-        selectValue: state.selectValue,
+        selectForm: state.selectForm,
     }
   }
   
 const MDP = (dispatch) => {
     // console.log(`MDP`, dispatch) 
     return {
-
+      view: () => dispatch({type: "VIEWCLICK"}),
+      handleSubmit:  (value) => ({type: "CREATESUBMIT", payload : value}),
     }
   }
   

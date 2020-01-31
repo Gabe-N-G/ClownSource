@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class Navbar extends React.Component{
     render(){
         return(
-            <div class='Navbar'>
+            <div className='Navbar'>
                 Hello {this.props.userName} welcome to Clownsource.io! would you like to: <button onClick={this.props.create}>Create New Circus</button> <button onClick={this.props.view} >Read Saved Circuses</button> <button>logout</button>
             </div>
         
@@ -21,6 +21,7 @@ const MSP = (state) => {
   }
   
 const MDP = (dispatch) => {
+    // console.log(`MDP`, dispatch)
     return {
         create: () => dispatch({type: "CREATECLICK"}),
         view: () => dispatch({type: "VIEWCLICK"})

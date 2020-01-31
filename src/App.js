@@ -7,7 +7,7 @@ import MainContainer from './Containers/MainContainer'
 
 function App() {
   return (
-    <div class='Container'>
+    <div className='Container'>
      <NavBar/>
       <div>
         <MainContainer/>
