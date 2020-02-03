@@ -1,13 +1,78 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import NavBar from './components/NavBar'
-// import MainContainer from './Containers/MainContainer'
+// import Singlequestion from './Singlequestion'
+import {answerCreator} from '../actionCreators'
+import CompletedForm from './CompletedForm'
+
+
 
 
 class Questions extends React.Component{
-  state ={
-    
 
+  state ={
+
+  }
+  
+  handlechange = (e) => {
+    this.setState({[e.target.name] : e.target.value})
+  }
+  render(){
+    console.log(this.state)
+    let questionArray = this.props.allQuestions? this.props.allQuestions.filter(array => array.template_id === this.props.selectForm.id) : ""
+    // console.log(questionArray)
+        return (
+            <div className='Centerwindow'>
+                Riddle me these questions!~
+            <form onSubmit={e => {e.preventDefault()
+                this.props.handleSubmit(this.state)
+                }}>
+                <label>
+                  Fill in the blanks!
+                </label>
+                    {questionArray.map(question => 
+                      <div>
+                          Give me a {question.text}!
+                          <br/>    
+                          <input type="text" 
+                            onChange={this.handlechange}
+                            name={question.identifier}
+                            placeholder={question.text} 
+                            value={this.state.value}/>
+                      </div>
+                      )                                                
+                    }
+                <input type="submit" value="Submit" />
+            </form>
+            <CompletedForm/>
+           </div>
+        );
+    }
+}
+
+const MSP = (state) => {
+  console.log(`MSP`,state)
+  return {
+    selectForm: state.selectForm,
+    allTemplates : state.allTemplates,
+    allQuestions : state.allQuestions,
+    answers : state.answers
+  }
+}
+
+const MDP = (dispatch) => {
+  // console.log(`MDP`, dispatch) 
+  return {
+    handleSubmit:  (value) => dispatch(answerCreator(value)),
+  }
+}
+
+export default connect(MSP, MDP)(Questions);
+
+
+
+/* old code for single page
+
+  state ={
   }
   
   handlechange = (e) => {
@@ -15,13 +80,7 @@ class Questions extends React.Component{
     this.setState({[e.target.name] : e.target.value})
   }
 
-  render(){
-    let questionArray = this.props.allQuestions? this.props.allQuestions.filter(array => array.template_id === this.props.selectForm.id) : ""
-    // console.log(questionArray)
-        return (
-            <div className='Centerwindow'>
-                This is my new container.
-                <form>
+ <form>
                     <label>
                       Fill in the blanks!
                     </label>
@@ -34,25 +93,11 @@ class Questions extends React.Component{
                       )                                                
                     }
               </form>
-            </div>
-        );
-    }
-}
 
-const MSP = (state) => {
-  console.log(`MSP`,state)
-  return {
-    selectForm: state.selectForm,
-    allTemplates : state.allTemplates,
-    allQuestions : state.allQuestions
-  }
-}
 
-const MDP = (dispatch) => {
-  // console.log(`MDP`, dispatch) 
-  return {
 
-  }
-}
 
-export default connect(MSP, MDP)(Questions);
+
+*/  
+
+/* single line new container {questionArray.map(q => <Singlequestion key ={q.id} identifier={q.identifier} text={q.text}  />)} */

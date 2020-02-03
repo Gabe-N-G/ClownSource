@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import {createSubmitCreator} from '../actionCreators'
+import CompletedForm from './CompletedForm'
 
   
 
@@ -43,8 +44,7 @@ class MadLibCreator extends React.Component{
                   <p>                  
                   {this.state.value? `${myTemplate[0].displaytext}` : "you didn't pick a template" }
                   </p>
-
-                    
+              
           </div>
       )
   }

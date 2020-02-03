@@ -9,7 +9,9 @@ let defaultState = {
     MadLibAction: null,
     selectForm: '',
     allTemplates : [],
-    allQuestions : []
+    allQuestions : [],
+    answers: [],
+    viewForm: ''
 }
 
 let reducer = (prevState=defaultState, action) => {
@@ -30,6 +32,11 @@ let reducer = (prevState=defaultState, action) => {
             case 'CREATESUBMIT':
                 return  {...prevState,
                         selectForm: action.payload.value    
+                        }
+            case 'ANSWER':
+                console.log(action)
+                return {...prevState,
+                        answers: action.payload.value,
                         }
             //fetch command            
             case 'GETTEMPLATES':
