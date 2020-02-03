@@ -16,22 +16,25 @@ class MadLibCreator extends React.Component{
   
 
   render(){
-    console.log(this.state.value)
-    console.log(this.props.allTemplates)
+    // console.log(this.state.value)
+    // console.log(this.props.allTemplates)
+    //makes sure things load
     let myTemplate = this.props.allTemplates? this.props.allTemplates.filter(mine => mine.title === this.state.value) : "DEAR CHRIST SOMETHINGS GONE WRONG"
-    console.log (myTemplate)
-    // let myTemplate = this.props.allTemplates.filter(mine => mine.title == this.state.value)
+    //creates myTemplate
+    // console.log (myTemplate)
       return(
           <div className='Centerwindow'>
               <p>  LETS PLAY A GAME {this.props.userName}</p>
               <form onSubmit={e => {
                 e.preventDefault();
-                this.props.handleSubmit(this.state.value);
+                //passing up the object of the template instead of the value here.
+                this.props.handleSubmit(myTemplate[0]);
                 }}>
                     <label>
                       Pick your template!
                       <select value={this.state.value} onChange={this.handleChange}>
                         <option value=""></option>
+                        {/* eventually I'll have to map out more forms here. */}
                         <option value="test">Test</option>
                       </select>
                     </label>
