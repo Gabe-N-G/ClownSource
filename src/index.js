@@ -7,10 +7,15 @@ import {createStore, applyMiddleware} from 'redux'
 import reducer from './reducer'
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk'
+// import {getTemplates} from './actionCreators'
+// import { connect } from 'react-redux';
+
 
 const store = createStore(reducer, applyMiddleware(thunk)) 
 //THE OMEGA STATE
 //THE UNITED STATES
+
+
 
 ReactDOM.render(
 <Provider store={store}>

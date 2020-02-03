@@ -6,9 +6,10 @@ let defaultState = {
     userName : '~test~',
     userColor : 'blue',
     userFont : 'Comic Sans MS", cursive, sans-serif',
-    MadLibCreateClick: false,
-    MadLibViewClick: false,
-    selectForm: ''
+    MadLibAction: null,
+    selectForm: '',
+    allTemplates : [],
+    allQuestions : []
 }
 
 let reducer = (prevState=defaultState, action) => {
@@ -20,32 +21,38 @@ let reducer = (prevState=defaultState, action) => {
         switch(action.type){
             case 'CREATECLICK':
                 return {...prevState, 
-                        MadLibCreateClick: true,
-                        MadLibViewClick: false
+                        MadLibAction: "Create",
                         }
             case 'VIEWCLICK':
                 return  {...prevState, 
-                        MadLibViewClick: true,
-                        MadLibCreateClick: false
+                        MadLibAction: "View",
                         }
             case 'CREATESUBMIT':
-                console.log("in reducer", action)
                 return  {...prevState,
                         selectForm: action.payload.value    
                         }
-            //   return console.log ('testing 1.2.3.')
-            //     //to use () => this.dispatch.('TEST')
-            // case `HANDLE_CHANGE`:
-            //   return console.log ('state : ${action.payload}')
-            //     // to use  (event) => this.dispatch(`FORM_TEST`, event.target.value)
-            // case `ADD_TEXT`:
-            //     //   return console.log ({...prevState, text: "", thangs=[...this.state.things, this.state.text]})
-            //     //this is adding a text to state
-            //     //reset your text state here if you want to. (text : "")
-            //     //to use ()=> this.dispatch('ADD_TEXT')
+            //fetch command            
+            case 'GETTEMPLATES':
+                return {...prevState,
+                allTemplates: action.payload.templates
+                }
+            case 'GETQUESTIONS':
+                return {...prevState,
+                allQuestions: action.payload.questions
+                }    
             default:
                 return prevState //do what previously happens, just a good catchall.
     }
 }
+
+// componentDidMount(){
+//     fetch('http://localhost:3000/templates')
+//     .then(response => response.json())
+//     .then(data => this.setState({ allTemplates: data }));
+//     fetch('http://localhost:3000/quresions')
+//     .then(response => response.json())
+//     .then(data => this.setState({ allQuestions: data }));
+//   }
+
 
 export default reducer

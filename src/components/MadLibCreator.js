@@ -2,18 +2,25 @@ import React from 'react'
 import { connect } from 'react-redux';
 import {createSubmitCreator} from '../actionCreators'
 
+  
+
 class MadLibCreator extends React.Component{
 
  state={
-  value : ''
+  value : '',
  }
 
  handleChange = (e) =>{ 
   this.setState({value : e.target.value})
  }
+  
 
   render(){
-    console.log(this.props)
+    console.log(this.state.value)
+    console.log(this.props.allTemplates)
+    let myTemplate = this.props.allTemplates? this.props.allTemplates.filter(mine => mine.title === this.state.value) : "DEAR CHRIST SOMETHINGS GONE WRONG"
+    console.log (myTemplate)
+    // let myTemplate = this.props.allTemplates.filter(mine => mine.title == this.state.value)
       return(
           <div className='Centerwindow'>
               <p>  LETS PLAY A GAME {this.props.userName}</p>
@@ -25,12 +32,15 @@ class MadLibCreator extends React.Component{
                       Pick your template!
                       <select value={this.state.value} onChange={this.handleChange}>
                         <option value=""></option>
-                        <option value="Test">Test</option>
+                        <option value="test">Test</option>
                       </select>
                     </label>
                     <input type="submit" value="Send in the clowns" />
                   </form>
-                
+                  <p>                  
+                  {this.state.value? `${myTemplate[0].displaytext}` : "you didn't pick a template" }
+                  </p>
+
                     
           </div>
       )
@@ -38,10 +48,11 @@ class MadLibCreator extends React.Component{
 }
 
 const MSP = (state) => {
-    console.log(`MSP`,state)
+    // console.log(`MSP`,state)
     return {
         userName:  state.userName,
         selectForm: state.selectForm,
+        allTemplates: state.allTemplates,
     }
   }
   
