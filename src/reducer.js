@@ -30,6 +30,7 @@ let reducer = (prevState=defaultState, action) => {
                         MadLibAction: "View",
                         }
             case 'CREATESUBMIT':
+                console.log(action)
                 return  {...prevState,
                         selectForm: action.payload.value    
                         }

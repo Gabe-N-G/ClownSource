@@ -22,7 +22,7 @@ class MadLibCreator extends React.Component{
     //makes sure things load
     let myTemplate = this.props.allTemplates? this.props.allTemplates.filter(mine => mine.title === this.state.value) : "DEAR CHRIST SOMETHINGS GONE WRONG"
     //creates myTemplate
-    // console.log (myTemplate)
+    console.log (myTemplate)
       return(
           <div className='Centerwindow'>
               <p>  LETS PLAY A GAME {this.props.userName}</p>

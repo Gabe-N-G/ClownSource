@@ -19,7 +19,7 @@ class Questions extends React.Component{
   render(){
     console.log(this.state)
     let questionArray = this.props.allQuestions? this.props.allQuestions.filter(array => array.template_id === this.props.selectForm.id) : ""
-    // console.log(questionArray)
+    console.log(questionArray)
         return (
             <div className='Centerwindow'>
                 Riddle me these questions!~
