@@ -16,6 +16,10 @@ class Questions extends React.Component{
   handlechange = (e) => {
     this.setState({[e.target.name] : e.target.value})
   }
+
+
+
+
   render(){
     console.log(this.state)
     let questionArray = this.props.allQuestions? this.props.allQuestions.filter(array => array.template_id === this.props.selectForm.id) : ""
@@ -55,7 +59,9 @@ const MSP = (state) => {
     selectForm: state.selectForm,
     allTemplates : state.allTemplates,
     allQuestions : state.allQuestions,
-    answers : state.answers
+    answers : state.answers,
+    users: state.userName
+
   }
 }
 

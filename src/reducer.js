@@ -4,14 +4,16 @@ let defaultState = {
     //our centrailized state goes here
     //THE UNITED STATES
     userName : '~test~',
-    userColor : 'blue',
-    userFont : 'Comic Sans MS", cursive, sans-serif',
+    // userColor : 'blue',
+    // userFont : 'Comic Sans MS", cursive, sans-serif',
+    currentUser: 1,
     MadLibAction: null,
     selectForm: '',
     allTemplates : [],
     allQuestions : [],
     answers: [],
-    viewForm: ''
+    viewForm: '',
+    Madlib: '',
 }
 
 let reducer = (prevState=defaultState, action) => {
@@ -38,6 +40,10 @@ let reducer = (prevState=defaultState, action) => {
                 console.log(action)
                 return {...prevState,
                         answers: action.payload.value,
+                        }
+            case 'POSTMADLIB':
+                return {...prevState
+                    //send to store here
                         }
             //fetch command            
             case 'GETTEMPLATES':

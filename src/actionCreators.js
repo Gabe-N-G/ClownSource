@@ -20,6 +20,7 @@ const createClickCreator = () => ({type: CREATECLICK})
 const viewClickCreator = () => ({type: VIEWCLICK})
 const createSubmitCreator = (value) => ({type: CREATESUBMIT, payload: {value}})
 const answerCreator = (value) => ({type: ANSWER, payload: {value}})
+//TO ADD: madlib creator. (at the end of post request adds the response to state.)
 
 export {
     createClickCreator,
