@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import MadLibCreator from '../components/MadLibCreator'
 import Questions from '../components/Questions'
 import {getTemplates, getQuestions} from  '../actionCreators'
+import CompletedForm from '../components/CompletedForm'
 
 class MainContainer extends React.Component{
     
@@ -21,6 +22,8 @@ class MainContainer extends React.Component{
         return(
             <div>
                 {this.props.selectForm? <Questions/> : <MadLibCreator/>}
+            {/* <CompletedForm/> */}
+
             </div>
         
         )

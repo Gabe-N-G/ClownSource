@@ -34,7 +34,7 @@ class CompletedForm extends React.Component{
         // console.log(typeof complete_too)
         // console.log(this.props.selectForm.text)
         return(
-            <div>
+            <div className='Centerwindow'>
                  {this.props.selectForm.displaytext}
                  <br/>
                  <br/>

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 // import Singlequestion from './Singlequestion'
 import {answerCreator} from '../actionCreators'
-import CompletedForm from './CompletedForm'
+
 
 
 
@@ -47,7 +47,6 @@ class Questions extends React.Component{
                     }
                 <input type="submit" value="Submit" />
             </form>
-            <CompletedForm/>
            </div>
         );
     }
@@ -61,7 +60,6 @@ const MSP = (state) => {
     allQuestions : state.allQuestions,
     answers : state.answers,
     users: state.userName
-
   }
 }
 

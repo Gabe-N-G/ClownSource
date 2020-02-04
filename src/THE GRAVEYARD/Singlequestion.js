@@ -13,12 +13,6 @@ class Singlequestion extends React.Component{
         console.log(e.target.name, e.target.value)
     }
 
-    // // {e => {
-    //     e.preventDefault();
-    //     //passing up the object of the template instead of the value here.
-    //     this.props.handleSubmit(myTemplate[0]);
-
-
     render(){
         console.log(this.props)
         return(
