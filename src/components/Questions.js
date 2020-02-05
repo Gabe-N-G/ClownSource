@@ -45,8 +45,9 @@ class Questions extends React.Component{
                       </div>
                       )                                                
                     }
-                <input type="submit" value="Submit" />
+                <input onClick={console.log("clicked")} type="submit" value="Submit" />
             </form>
+            
            </div>
         );
     }

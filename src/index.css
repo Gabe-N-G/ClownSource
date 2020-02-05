@@ -28,5 +28,5 @@ code {
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
     background-color: lightgrey;
-    
-}
+    white-space: pre-line;
+  }

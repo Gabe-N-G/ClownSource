@@ -7,7 +7,7 @@ const CREATECLICK = "CREATECLICK"
 const VIEWCLICK = "VIEWCLICK"
 const CREATESUBMIT = "CREATESUBMIT"
 const ANSWER = "ANSWER"
-
+const VIEWMADLIB = "VIEWMADLIB"
 
 //how to fetch
 const GETTEMPLATES = "GETTEMPLATES"
@@ -22,6 +22,7 @@ const createClickCreator = () => ({type: CREATECLICK})
 const viewClickCreator = () => ({type: VIEWCLICK})
 const createSubmitCreator = (value) => ({type: CREATESUBMIT, payload: {value}})
 const answerCreator = (value) => ({type: ANSWER, payload: {value}})
+const viewMadLibCreator = (value) => ({type: VIEWMADLIB, payload: {value}})
 //TO ADD: madlib creator. (at the end of post request adds the response to state.)
 
 export {
@@ -31,5 +32,6 @@ export {
     getTemplates,
     getQuestions,
     getMadlibs,
-    answerCreator
+    answerCreator,
+    viewMadLibCreator,
 }

@@ -5,6 +5,7 @@ import Questions from '../components/Questions'
 import {getTemplates, getQuestions, getMadlibs} from  '../actionCreators'
 // import CompletedForm from '../THE GRAVEYARD/CompletedForm' 
 import MadLibView from '../components/MadLibView'
+import SingleView from '../components/SingleView'
 
 class MainContainer extends React.Component{
     
@@ -20,13 +21,30 @@ class MainContainer extends React.Component{
         .then(madlibs => {this.props.getMadlibs(madlibs)});      
   }
 
-    function
+  pageRender = () => {
+    switch (this.props.MadLibAction) {
+      case "Create":
+        return this.props.selectForm? <Questions/> : <MadLibCreator/>
+      case "View":
+        return this.props.viewMadLib ?  <SingleView/> : <MadLibView/>
+     default:
+        return ('Pick something will ya?') 
+    }
+  }
+
 
     render(){
-        // console.log(this.props)
-        return(    
-            <div>
-                 <MadLibView/>
+        
+        return(  
+            
+            
+            <div className>
+                
+                
+                {this.pageRender()}
+                
+
+
             </div>
         )
     }
@@ -40,8 +58,9 @@ const MSP = (state) => {
     return {
         userName:  state.userName,
         formCreateClick: state.formCreateClick,
-        // selectForm: state.selectForm,
+        viewMadLib: state.viewMadlib,
         MadLibAction: state.MadLibAction,
+        selectForm: state.selectForm,
         //fetch here
         allTemplates: state.allTemplates,
         allQuestions: state.allQuestions,

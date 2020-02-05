@@ -14,7 +14,7 @@ let defaultState = {
     allMadlibs: [],
     answers: [],
     viewForm: '',
-    selectMadlib: ''
+    viewMadlib: null
 }
 
 let reducer = (prevState=defaultState, action) => {
@@ -44,7 +44,11 @@ let reducer = (prevState=defaultState, action) => {
                         }
             case 'POSTMADLIB':
                 return {...prevState
-                    //send to store here
+                            //send to store here
+                        }
+            case 'VIEWMADLIB':
+                return {...prevState,
+                        viewMadlib: action.payload.value
                         }
             //fetch command            
             case 'GETTEMPLATES':
