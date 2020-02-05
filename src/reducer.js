@@ -11,9 +11,10 @@ let defaultState = {
     selectForm: '',
     allTemplates : [],
     allQuestions : [],
+    allMadlibs: [],
     answers: [],
     viewForm: '',
-    Madlib: '',
+    selectMadlib: ''
 }
 
 let reducer = (prevState=defaultState, action) => {
@@ -53,7 +54,11 @@ let reducer = (prevState=defaultState, action) => {
             case 'GETQUESTIONS':
                 return {...prevState,
                 allQuestions: action.payload.questions
-                }    
+                } 
+            case 'GETMADLIBS':
+                return {...prevState,
+                allMadlibs: action.payload.madlibs
+                }       
             default:
                 return prevState //do what previously happens, just a good catchall.
     }

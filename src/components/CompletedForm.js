@@ -50,10 +50,10 @@ class CompletedForm extends React.Component{
 const MSP = (state) => {
     // console.log(`MSP`,state)
     return {
-        answers: state.answers,
-        selectForm : state.selectForm,
-        userName:  state.userName,
-        currentUser: state.currentUser,
+        // answers: state.answers,
+        // selectForm : state.selectForm,
+    //     userName:  state.userName,
+    //     currentUser: state.currentUser,
     }
   }
   

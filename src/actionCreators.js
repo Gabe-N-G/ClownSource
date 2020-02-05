@@ -14,6 +14,8 @@ const GETTEMPLATES = "GETTEMPLATES"
 const getTemplates = (templates) => ({type: GETTEMPLATES, payload: {templates}})
 const GETQUESTIONS = "GETQUESTIONS"
 const getQuestions = (questions) => ({type: GETQUESTIONS, payload: {questions}})
+const GETMADLIBS = "GETMADLIBS"
+const getMadlibs = (madlibs) => ({type: GETMADLIBS, payload: {madlibs}})
 
 
 const createClickCreator = () => ({type: CREATECLICK})
@@ -28,5 +30,6 @@ export {
     createSubmitCreator,
     getTemplates,
     getQuestions,
+    getMadlibs,
     answerCreator
 }
