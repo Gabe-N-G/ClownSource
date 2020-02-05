@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 class CompletedForm extends React.Component{
     
     state = {
-        complete: ''
+        complete: '',
+        newMadlib: {},
     }
 
     handleChange(e){
@@ -22,7 +23,8 @@ class CompletedForm extends React.Component{
           },
           body: JSON.stringify({user_id: this.props.currentUser, template_id: this.props.selectForm.id, answers: this.props.answers})
         })
-        .then(console.log("save complete!"))
+        .then((response) => response.json())
+        .then((data) => {this.setState({newMadlib : data})})
       }
    
 
@@ -33,13 +35,17 @@ class CompletedForm extends React.Component{
         // let complete_too = JSON.parse(JSON.stringify(this.props.selectForm.text))
         // console.log(typeof complete_too)
         // console.log(this.props.selectForm.text)
+        console.log(this.state)
+        console.log(typeof this.props.allMadlibs)
         return(
-            <div className='Centerwindow'>
-                 {this.props.selectForm.displaytext}
+         
+            <div >
+                 {/* {this.props.selectForm.displaytext} */}
                  <br/>
                  <br/>
                  <p>
-                    Hello {this.props.answers.test_1}, I am {this.props.answers.test_2} and I'm ready to {this.props.answers.test_3} 
+                  {this.state.newMadlib.completed_text}
+                 {/* Hello {this.props.answers.test_1}, I am {this.props.answers.test_2} and I'm ready to {this.props.answers.test_3}  */}
                  </p>  
                  <button onClick={(props)=>this.madLibCreator(props)}>Save Madlib?</button>  
             </div>
@@ -50,10 +56,11 @@ class CompletedForm extends React.Component{
 const MSP = (state) => {
     // console.log(`MSP`,state)
     return {
-        // answers: state.answers,
-        // selectForm : state.selectForm,
-    //     userName:  state.userName,
-    //     currentUser: state.currentUser,
+        answers: state.answers,
+        selectForm : state.selectForm,
+        userName:  state.userName,
+        currentUser: state.currentUser,
+        allMadlibs: state.allMadlibs
     }
   }
   

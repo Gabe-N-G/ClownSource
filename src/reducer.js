@@ -32,6 +32,10 @@ let reducer = (prevState=defaultState, action) => {
                 return  {...prevState, 
                         MadLibAction: "View",
                         }
+            case 'COMPLETECLICK':
+                return {...prevState,
+                        MadLibAction: "Complete"
+                        }
             case 'CREATESUBMIT':
                 console.log(action)
                 return  {...prevState,

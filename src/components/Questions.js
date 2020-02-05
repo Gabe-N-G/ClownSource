@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 // import Singlequestion from './Singlequestion'
-import {answerCreator} from '../actionCreators'
+import {answerCreator, completeClickCreator} from '../actionCreators'
+import CompletedForm from './CompletedForm'
 
 
 
@@ -28,8 +29,8 @@ class Questions extends React.Component{
             <div className='Centerwindow'>
                 Riddle me these questions!~
             <form onSubmit={e => {e.preventDefault()
-                this.props.handleSubmit(this.state)
-                }}>
+                this.props.handleSubmit(this.state)}
+                }>
                 <label>
                   Fill in the blanks!
                 </label>
@@ -45,10 +46,12 @@ class Questions extends React.Component{
                       </div>
                       )                                                
                     }
-                <input onClick={console.log("clicked")} type="submit" value="Submit" />
+                <input type="submit" value="Submit" />
+                
             </form>
-            
+            <CompletedForm/>
            </div>
+           
         );
     }
 }
@@ -68,6 +71,7 @@ const MDP = (dispatch) => {
   // console.log(`MDP`, dispatch) 
   return {
     handleSubmit:  (value) => dispatch(answerCreator(value)),
+    completeClick: () => dispatch(completeClickCreator())
   }
 }
 

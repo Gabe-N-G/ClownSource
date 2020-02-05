@@ -5,6 +5,7 @@ in the museum file this is the actions folder seperated as actions and types.
 
 const CREATECLICK = "CREATECLICK"
 const VIEWCLICK = "VIEWCLICK"
+const COMPLETECLICK = "COMPLETECLICK"
 const CREATESUBMIT = "CREATESUBMIT"
 const ANSWER = "ANSWER"
 const VIEWMADLIB = "VIEWMADLIB"
@@ -20,6 +21,7 @@ const getMadlibs = (madlibs) => ({type: GETMADLIBS, payload: {madlibs}})
 
 const createClickCreator = () => ({type: CREATECLICK})
 const viewClickCreator = () => ({type: VIEWCLICK})
+const completeClickCreator = () => ({type: COMPLETECLICK})
 const createSubmitCreator = (value) => ({type: CREATESUBMIT, payload: {value}})
 const answerCreator = (value) => ({type: ANSWER, payload: {value}})
 const viewMadLibCreator = (value) => ({type: VIEWMADLIB, payload: {value}})
@@ -28,6 +30,7 @@ const viewMadLibCreator = (value) => ({type: VIEWMADLIB, payload: {value}})
 export {
     createClickCreator,
     viewClickCreator,
+    completeClickCreator,
     createSubmitCreator,
     getTemplates,
     getQuestions,

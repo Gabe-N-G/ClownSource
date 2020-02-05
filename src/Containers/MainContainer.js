@@ -6,6 +6,7 @@ import {getTemplates, getQuestions, getMadlibs} from  '../actionCreators'
 // import CompletedForm from '../THE GRAVEYARD/CompletedForm' 
 import MadLibView from '../components/MadLibView'
 import SingleView from '../components/SingleView'
+import CompletedForm from '../components/CompletedForm'
 
 class MainContainer extends React.Component{
     
@@ -27,8 +28,10 @@ class MainContainer extends React.Component{
         return this.props.selectForm? <Questions/> : <MadLibCreator/>
       case "View":
         return this.props.viewMadLib ?  <SingleView/> : <MadLibView/>
+      case "Complete":
+        return <CompletedForm/>
      default:
-        return ('Pick something will ya?') 
+        return <div className="Centerwindow">Pick something will ya?</div>
     }
   }
 
@@ -61,6 +64,7 @@ const MSP = (state) => {
         viewMadLib: state.viewMadlib,
         MadLibAction: state.MadLibAction,
         selectForm: state.selectForm,
+        answers: state.answers,
         //fetch here
         allTemplates: state.allTemplates,
         allQuestions: state.allQuestions,

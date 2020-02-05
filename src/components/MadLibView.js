@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import {viewMadLibCreator} from '../actionCreators'
 
+
 class MadLibView extends React.Component{
     
     state = {
