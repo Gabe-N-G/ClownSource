@@ -23,10 +23,15 @@ code {
 
 .Centerwindow{
     position: fixed;
-    top: 25%;
+    top: 40%;
     left: 50%;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
     background-color: lightgrey;
     white-space: pre-line;
   }
+
+.Test{
+  background-color: lightgrey;
+  white-space: pre-line;
+}

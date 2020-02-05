@@ -26,7 +26,7 @@ class Questions extends React.Component{
     let questionArray = this.props.allQuestions? this.props.allQuestions.filter(array => array.template_id === this.props.selectForm.id) : ""
     console.log(questionArray)
         return (
-            <div className='Centerwindow'>
+            <div className="Test">
                 Riddle me these questions!~
             <form onSubmit={e => {e.preventDefault()
                 this.props.handleSubmit(this.state)}

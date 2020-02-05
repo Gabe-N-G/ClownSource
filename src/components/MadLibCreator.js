@@ -37,6 +37,7 @@ class MadLibCreator extends React.Component{
                         <option value=""></option>
                         {/* eventually I'll have to map out more forms here. */}
                         <option value="test">Test</option>
+                        <option value="resignation">Resignation</option>
                       </select>
                     </label>
                     <input type="submit" value="Send in the clowns" />
