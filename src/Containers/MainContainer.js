@@ -28,8 +28,8 @@ class MainContainer extends React.Component{
         return this.props.selectForm? <Questions/> : <MadLibCreator/>
       case "View":
         return this.props.viewMadLib ?  <SingleView/> : <MadLibView/>
-      case "Complete":
-        return <CompletedForm/>
+    //   case "Complete":
+    //     return <CompletedForm/>
      default:
         return <div className="Centerwindow">Pick something will ya?</div>
     }

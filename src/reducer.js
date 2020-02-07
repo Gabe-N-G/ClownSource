@@ -27,10 +27,16 @@ let reducer = (prevState=defaultState, action) => {
             case 'CREATECLICK':
                 return {...prevState, 
                         MadLibAction: "Create",
+                        viewMadlib: null,
+                        answers: [],
+                        selectForm: ''
                         }
             case 'VIEWCLICK':
                 return  {...prevState, 
                         MadLibAction: "View",
+                        viewMadlib: null,
+                        answers: [],
+                        selectForm: ''
                         }
             case 'COMPLETECLICK':
                 return {...prevState,

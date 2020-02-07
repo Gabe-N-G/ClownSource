@@ -33,7 +33,7 @@ const MSP = (state) => {
     return {
         allMadlibs: state.allMadlibs,
         allTemplates : state.allTemplates,
-        viewMadlib : state.viewMadlib
+        viewMadlib : state.viewMadLib
     }
   }
   
