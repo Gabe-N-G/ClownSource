@@ -49,7 +49,7 @@ class Questions extends React.Component{
                 <input type="submit" value="Submit" />
                 
             </form>
-            <CompletedForm/>
+            
            </div>
            
         );

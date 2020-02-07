@@ -38,18 +38,20 @@ let reducer = (prevState=defaultState, action) => {
                         answers: [],
                         selectForm: ''
                         }
-            case 'COMPLETECLICK':
-                return {...prevState,
-                        MadLibAction: "Complete"
-                        }
+            // case 'COMPLETECLICK':
+            //     return {...prevState,
+            //             MadLibAction: "Complete"
+            //             }
             case 'CREATESUBMIT':
                 console.log(action)
                 return  {...prevState,
+                        // MadLibAction: "Complete",
                         selectForm: action.payload.value    
                         }
             case 'ANSWER':
                 console.log(action)
                 return {...prevState,
+                        MadLibAction: "Complete",
                         answers: action.payload.value,
                         }
             case 'POSTMADLIB':

@@ -9,6 +9,17 @@ class MadLibView extends React.Component{
        
     }
     
+    madLibCreator(id){
+        fetch('http://localhost:3000/madlibs',{
+          method: 'DELETE',
+          headers:{
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({id: this.libs.id})
+        })
+        .then((response) => response.json())
+      }
+
 
     render(){
        
@@ -21,6 +32,7 @@ class MadLibView extends React.Component{
                 {this.props.allMadlibs.map(libs =><div> Title: {libs.template.title}|
                                                         User: {libs.user.name}|
                                                         <button onClick={() => this.props.handleClick(libs)}>view</button> 
+                                                        <button>delete</button>
                                                     </div> ) }
                                                     
             </div>

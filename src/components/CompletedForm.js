@@ -1,10 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import {createClickCreator} from '../actionCreators'
 
 class CompletedForm extends React.Component{
     
     state = {
-        complete: '',
+        complete: false,
         newMadlib: {},
     }
 
@@ -24,7 +25,8 @@ class CompletedForm extends React.Component{
           body: JSON.stringify({user_id: this.props.currentUser, template_id: this.props.selectForm.id, answers: this.props.answers})
         })
         .then((response) => response.json())
-        .then((data) => {this.setState({newMadlib : data})})
+        .then((data) => {this.setState({newMadlib : data,
+                                        complete :true})})
       }
    
 
@@ -39,15 +41,16 @@ class CompletedForm extends React.Component{
         console.log(typeof this.props.allMadlibs)
         return(
          
-            <div >
+            <div className="Centerwindow">
                  {/* {this.props.selectForm.displaytext} */}
                  <br/>
+                 And your answer is...
                  <br/>
                  <p>
-                  {this.state.newMadlib.completed_text}
+                  {this.state.complete? this.state.newMadlib.completed_text : this.props.selectForm.text}
                  {/* Hello {this.props.answers.test_1}, I am {this.props.answers.test_2} and I'm ready to {this.props.answers.test_3}  */}
                  </p>  
-                 <button onClick={(props)=>this.madLibCreator(props)}>Save Madlib?</button>  
+                {this.state.complete? <button onClick={this.props.create}>go again?</button>:<button onClick={(props)=>this.madLibCreator(props)}>Send your answer!?</button> } 
             </div>
         )
     }
@@ -67,6 +70,7 @@ const MSP = (state) => {
 const MDP = (dispatch) => {
     // console.log(`MDP`, dispatch)
     return {
+      create: () => dispatch(createClickCreator())
     }
   }
   

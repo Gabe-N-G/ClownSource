@@ -17,6 +17,11 @@ const GETQUESTIONS = "GETQUESTIONS"
 const getQuestions = (questions) => ({type: GETQUESTIONS, payload: {questions}})
 const GETMADLIBS = "GETMADLIBS"
 const getMadlibs = (madlibs) => ({type: GETMADLIBS, payload: {madlibs}})
+// fetch delete
+// const DELETEMADLIBS = "DELETEMADLIB"
+// const DELETEMADLIBS = (madlibs) => ({type: DELETEMADLIBS, payload: {madlibs}})
+
+
 
 
 const createClickCreator = () => ({type: CREATECLICK})
