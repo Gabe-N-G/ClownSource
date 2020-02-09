@@ -3,15 +3,16 @@
 let defaultState = {
     //our centrailized state goes here
     //THE UNITED STATES
-    userName : '~test~',
+    // userName : '~test~',
     // userColor : 'blue',
     // userFont : 'Comic Sans MS", cursive, sans-serif',
     currentUser: 1,
-    MadLibAction: null,
+    MadLibAction: 'Login',
     selectForm: '',
     allTemplates : [],
     allQuestions : [],
     allMadlibs: [],
+    allUsers: [],
     answers: [],
     viewForm: '',
     viewMadlib: null
@@ -37,6 +38,14 @@ let reducer = (prevState=defaultState, action) => {
                         viewMadlib: null,
                         answers: [],
                         selectForm: ''
+                        }
+            case 'LOGOUT':
+                return {...prevState,
+                        MadLibAction: "Login",
+                        viewMadlib: null,
+                        answers: [],
+                        selectForm: '',
+                        currentUser: ''
                         }
             // case 'COMPLETECLICK':
             //     return {...prevState,
@@ -74,7 +83,15 @@ let reducer = (prevState=defaultState, action) => {
             case 'GETMADLIBS':
                 return {...prevState,
                 allMadlibs: action.payload.madlibs
-                }       
+                }
+            case 'GETUSERS':
+                return {...prevState,
+                allUsers: action.payload.users
+                }
+            case 'DELETEMADLIB':
+                return {...prevState,
+                id: action.payload.id
+                }                  
             default:
                 return prevState //do what previously happens, just a good catchall.
     }

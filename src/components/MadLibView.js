@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import {viewMadLibCreator} from '../actionCreators'
+import {viewMadLibCreator, deleteMadLib} from '../actionCreators'
 
 
 class MadLibView extends React.Component{
@@ -9,15 +9,18 @@ class MadLibView extends React.Component{
        
     }
     
-    madLibCreator(id){
-        fetch('http://localhost:3000/madlibs',{
+    madLibDeleter = (id) => {
+        console.log(id)
+        fetch(`http://localhost:3000/madlibs/${id}`,{
           method: 'DELETE',
-          headers:{
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({id: this.libs.id})
+        //   headers:{
+        //     'Content-Type': 'application/json'
+        //   },
+        //   body: JSON.stringify({id: id})
         })
         .then((response) => response.json())
+        .then((resp) =>console.log("deleted", resp)) 
+        .then ((thing) => {return thing})
       }
 
 
@@ -32,7 +35,7 @@ class MadLibView extends React.Component{
                 {this.props.allMadlibs.map(libs =><div> Title: {libs.template.title}|
                                                         User: {libs.user.name}|
                                                         <button onClick={() => this.props.handleClick(libs)}>view</button> 
-                                                        <button>delete</button>
+                                                        <button onClick={() => this.madLibDeleter(libs.id)}>delete</button>
                                                     </div> ) }
                                                     
             </div>
@@ -53,6 +56,8 @@ const MDP = (dispatch) => {
     // console.log(`MDP`, dispatch)
     return {
         handleClick:  (value) => dispatch(viewMadLibCreator(value)),
+        deleteMadLib: (id) => dispatch(deleteMadLib(id))
+        
     }
   }
   

@@ -7,6 +7,7 @@ import {getTemplates, getQuestions, getMadlibs} from  '../actionCreators'
 import MadLibView from '../components/MadLibView'
 import SingleView from '../components/SingleView'
 import CompletedForm from '../components/CompletedForm'
+import Login from '../components/Login'
 
 class MainContainer extends React.Component{
     
@@ -24,6 +25,8 @@ class MainContainer extends React.Component{
 
   pageRender = () => {
     switch (this.props.MadLibAction) {
+      case "Login":
+          return <Login/>
       case "Create":
         return this.props.selectForm? <Questions/> : <MadLibCreator/>
       case "View":
@@ -57,7 +60,7 @@ class MainContainer extends React.Component{
 
 
 const MSP = (state) => {
-    console.log(`MSP`,state)
+    // console.log(`MSP`,state)
     return {
         userName:  state.userName,
         formCreateClick: state.formCreateClick,
