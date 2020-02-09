@@ -6,7 +6,7 @@ let defaultState = {
     // userName : '~test~',
     // userColor : 'blue',
     // userFont : 'Comic Sans MS", cursive, sans-serif',
-    currentUser: 1,
+    currentUser: '',
     MadLibAction: 'Login',
     selectForm: '',
     allTemplates : [],
@@ -47,6 +47,11 @@ let reducer = (prevState=defaultState, action) => {
                         selectForm: '',
                         currentUser: ''
                         }
+            case 'CHANGEUSER':
+                console.log(action.payload)
+                return {...prevState,
+                    currentUser: action.payload.value
+                }
             // case 'COMPLETECLICK':
             //     return {...prevState,
             //             MadLibAction: "Complete"

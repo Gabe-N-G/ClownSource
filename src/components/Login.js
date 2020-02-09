@@ -1,5 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import {changeUserCreator} from '../actionCreators'
+
 
 
 class Login extends React.Component{
@@ -21,9 +23,9 @@ class Login extends React.Component{
         body: JSON.stringify({name: login.name, font: login.font, color: login.color})
       })
       .then((response) => response.json())
-      .then((thing) => console.log("saved", thing)) 
-      // .then((data) => {this.setState({newMadlib : data,
-      //                                 complete :true})})
+      // .then((thing) => console.log("saved", thing.id))
+      .then((me) => this.props.changeUser(me.id)) 
+     
     }
 
     render(){
@@ -72,6 +74,17 @@ class Login extends React.Component{
               <p style = {{fontFamily : this.state.font}}>I, <span style = {{color : this.state.color}}>{this.state.name}</span> hereby grant permission to Clownsource.io to release (poorly) written documents in my name. </p>
               <input type="submit" value="Ok?" />
               </form>
+              <br/>
+              Or have you been here before?
+              <br/>
+              <form form onSubmit={e => {e.preventDefault()
+              this.props.changeUser(this.state.currentuser)
+                }}>
+                <select name="currentuser" value={this.state.value} onChange={this.handleChange}>
+                      {this.props.allUsers.map(user => <option value={user.id}>{user.name}</option>)}
+                </select>  
+                <input type="submit" value="Take me back!" />
+              </form>  
         </div>
         )
     }
@@ -80,16 +93,16 @@ class Login extends React.Component{
 // can I make colored text inside select? <option style={{color:"blue"}} value="Blue">Blue</option>
 
 const MSP = (state) => {
-    // console.log(`MSP`,state)
+    console.log(`MSP`,state)
     return {
-      
+      allUsers: state.allUsers
     }
   }
   
 const MDP = (dispatch) => {
     // console.log(`MDP`, dispatch)
     return {
-
+      changeUser:  (value) => dispatch(changeUserCreator(value))
     }
   }
   

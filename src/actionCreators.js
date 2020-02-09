@@ -10,6 +10,18 @@ const CREATESUBMIT = "CREATESUBMIT"
 const ANSWER = "ANSWER"
 const VIEWMADLIB = "VIEWMADLIB"
 const LOGOUT = "LOGOUT"
+const CHANGEUSER = "CHANGEUSER"
+
+
+const createClickCreator = () => ({type: CREATECLICK})
+const viewClickCreator = () => ({type: VIEWCLICK})
+const completeClickCreator = () => ({type: COMPLETECLICK})
+const logOutCreator = () => ({type: LOGOUT})
+const changeUserCreator = (value) => ({type: CHANGEUSER, payload: {value}})
+const createSubmitCreator = (value) => ({type: CREATESUBMIT, payload: {value}})
+const answerCreator = (value) => ({type: ANSWER, payload: {value}})
+const viewMadLibCreator = (value) => ({type: VIEWMADLIB, payload: {value}})
+//TO ADD: madlib creator. (at the end of post request adds the response to state.)
 
 //how to fetch
 const GETTEMPLATES = "GETTEMPLATES"
@@ -26,24 +38,13 @@ const deleteMadLib = (id) => ({type: DELETEMADLIB, payload: {id}})
 // const DELETEMADLIBS = "DELETEMADLIB"
 // const DELETEMADLIBS = (madlibs) => ({type: DELETEMADLIBS, payload: {madlibs}})
 
-
-
-
-const createClickCreator = () => ({type: CREATECLICK})
-const viewClickCreator = () => ({type: VIEWCLICK})
-const completeClickCreator = () => ({type: COMPLETECLICK})
-const logOutCreator = () => ({type: LOGOUT})
-const createSubmitCreator = (value) => ({type: CREATESUBMIT, payload: {value}})
-const answerCreator = (value) => ({type: ANSWER, payload: {value}})
-const viewMadLibCreator = (value) => ({type: VIEWMADLIB, payload: {value}})
-//TO ADD: madlib creator. (at the end of post request adds the response to state.)
-
 export {
     createClickCreator,
     viewClickCreator,
     completeClickCreator,
     logOutCreator,
     createSubmitCreator,
+    changeUserCreator,
     getTemplates,
     getQuestions,
     getMadlibs,
