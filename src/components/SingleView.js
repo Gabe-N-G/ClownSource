@@ -8,7 +8,7 @@ class SingleView extends React.Component{
        
     }
 
-
+    //  in RUBY: params[:answers].each_value{|value| currenttemplate.text.sub!(/[_]/, value)}
     render(){
         console.log(this.props)
         return(

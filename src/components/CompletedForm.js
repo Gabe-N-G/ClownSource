@@ -7,6 +7,7 @@ class CompletedForm extends React.Component{
     state = {
         complete: false,
         newMadlib: {},
+        madlibToReplace: this.props.selectForm.text
     }
 
     handleChange(e){
@@ -14,15 +15,15 @@ class CompletedForm extends React.Component{
     }
 
     madLibCreator(props){
-        console.log("saved!", this.props.currentUser)
-        console.log(this.props.selectForm.id)
+    //     console.log("saved!", this.props.currentUser)
+    //     console.log(this.props.selectForm.id)
         console.log(this.props.answers)
         fetch('http://localhost:3000/madlibs',{
           method: 'POST',
           headers:{
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({user_id: this.props.currentUser, template_id: this.props.selectForm.id, answers: this.props.answers})
+          body: JSON.stringify({user_id: this.props.currentUser.id, template_id: this.props.selectForm.id, answers: this.props.answers})
         })
         .then((response) => response.json())
         .then((data) => {this.setState({newMadlib : data,
@@ -37,8 +38,17 @@ class CompletedForm extends React.Component{
         // let complete_too = JSON.parse(JSON.stringify(this.props.selectForm.text))
         // console.log(typeof complete_too)
         // console.log(this.props.selectForm.text)
-        console.log(this.state)
-        console.log(typeof this.props.allMadlibs)
+
+        // IN RUBY: params[:answers].each_value{|value| currenttemplate.text.sub!(/[_]/, value)}
+
+        // let allanswers = Object.values(this.props.answers)
+        // console.log(allanswers)
+        // console.log(this.props.selectForm.text)
+        // allanswers.map(thing => this.setState({madlibToReplace: this.state.madlibToReplace.replace(/_/, thing)}))
+        // // console.log(newresult)
+        // console.log(this.state)
+        
+        //THIS WILL NOT WORK IN JUST JS, best thing for future use is to just 
         return(
          
             <div className="Centerwindow">
@@ -57,7 +67,7 @@ class CompletedForm extends React.Component{
 }
 
 const MSP = (state) => {
-    // console.log(`MSP`,state)
+    console.log(`MSP`,state)
     return {
         answers: state.answers,
         selectForm : state.selectForm,

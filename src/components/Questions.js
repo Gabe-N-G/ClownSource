@@ -21,9 +21,9 @@ class Questions extends React.Component{
 
 
   render(){
-    console.log(this.state)
+    // console.log(this.state)
     let questionArray = this.props.allQuestions? this.props.allQuestions.filter(array => array.template_id === this.props.selectForm.id) : ""
-    console.log(questionArray)
+    // console.log(questionArray)
         return (
             <div className="Test">
                 Riddle me these questions!~
@@ -56,7 +56,7 @@ class Questions extends React.Component{
 }
 
 const MSP = (state) => {
-  console.log(`MSP`,state)
+  // console.log(`MSP`,state)
   return {
     selectForm: state.selectForm,
     allTemplates : state.allTemplates,

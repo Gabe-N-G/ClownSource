@@ -7,7 +7,7 @@ class MadLibView extends React.Component{
     
     state = {
        sortedMadlib : this.props.allMadlibs,
-       toRemove : ''
+  
     }
     
     madLibDeleter = (id) => {
@@ -16,8 +16,8 @@ class MadLibView extends React.Component{
           method: 'DELETE',
         })
         .then((response) => response.json())
-        .then((resp) =>console.log("deleted", resp))
-        .then((removed) => this.setState({toRemove : removed}))
+
+        .then((removed) => this.setState({sortedMadlib : this.state.sortedMadlib.filter(deleted => deleted.id !== removed.id)}))
          
         // .then((removeML) =>)
         /*{id: 8, user: {…}, completed_text: "Hello WeWork, I am Gabe and Im ready to Go malding", template: {…}}
@@ -27,6 +27,8 @@ class MadLibView extends React.Component{
             template: {id: 8, title: "test", text: "Hello _, I am _ and Im ready to _", displaytext: "Hello (place), I am (name) and I’m ready to (verb).", created_at: "2020-02-04T19:58:14.937Z", …}
             __proto__: Object
         */    
+
+      
       }
 
 
@@ -38,7 +40,7 @@ class MadLibView extends React.Component{
               
 
                 Here are ya malibs! Click to see!
-                {this.props.allMadlibs.map(libs =><div> Title: {libs.template.title}|
+                {this.state.sortedMadlib.map(libs =><div> Title: {libs.template.title}|
                                                         User: {libs.user.name}|
                                                         <button onClick={() => this.props.handleClick(libs)}>view</button> 
                                                         <button onClick={() => this.madLibDeleter(libs.id)}>delete</button>
@@ -68,3 +70,5 @@ const MDP = (dispatch) => {
   }
   
 export default connect(MSP, MDP)(MadLibView);
+
+

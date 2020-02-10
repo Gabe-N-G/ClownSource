@@ -87,7 +87,7 @@ class Login extends React.Component{
               Or have you been here before?
               <br/>
               <form form onSubmit={e => {e.preventDefault()
-                this.loginCreator(this.state.userobj)
+                this.props.changeUser(this.state.userobj)
                 }}>
                 <select name="currentuser" value={this.state.value} onChange={this.selectChange}>
                   {/* at a loss here, need to figure out a way to return the object instead of just a number */}
