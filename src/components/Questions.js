@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 // import Singlequestion from './Singlequestion'
 import {answerCreator, completeClickCreator} from '../actionCreators'
-import CompletedForm from './CompletedForm'
 
 
 

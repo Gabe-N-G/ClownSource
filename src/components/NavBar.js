@@ -16,11 +16,11 @@ class Navbar extends React.Component{
     }
 
     render(){
-        let current = this.props.allUsers.find(now => now.id === this.props.currentUser)
+        // let current = this.props.allUsers.find(now => now.id === this.props.currentUser)
         
         return(
-            <div className='Navbar'>
-                Hello  {current?<span style = {{color : current.color}}>{current.name}</span>: "login"} welcome to Clownsource.io! would you like to: <button onClick={this.props.create}>Create New Circus</button> <button onClick={this.props.view} >Read Saved Circuses</button> <button onClick={this.props.logout}>logout</button>
+            <div className='Navbar' style={{fontFamily:this.props.currentUser.font}}>
+                Hello  {this.props.currentUser?<span style = {{color : this.props.currentUser.color}}>{this.props.currentUser.name}</span>: "please login"} welcome to Clownsource.io! would you like to: <button onClick={this.props.create}>Create New Circus</button> <button onClick={this.props.view} >Read Saved Circuses</button> <button onClick={this.props.logout}>logout</button>
             </div>
         
         )

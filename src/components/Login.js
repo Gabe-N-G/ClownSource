@@ -7,10 +7,19 @@ import {changeUserCreator} from '../actionCreators'
 class Login extends React.Component{
     
     state = {
+      userobj : ''
     }
 
     handleChange = (e) => {
       this.setState({[e.target.name] : e.target.value})
+    }
+
+    selectChange = (e) => {
+              console.log(e.target.value)
+              let user = this.props.allUsers.find(user => user.id == e.target.value)
+              console.log(user)
+              this.setState({userobj: user})
+
     }
 
     loginCreator(login){
@@ -24,7 +33,7 @@ class Login extends React.Component{
       })
       .then((response) => response.json())
       // .then((thing) => console.log("saved", thing.id))
-      .then((me) => this.props.changeUser(me.id)) 
+      .then((me) => this.props.changeUser(me)) 
      
     }
 
@@ -78,9 +87,10 @@ class Login extends React.Component{
               Or have you been here before?
               <br/>
               <form form onSubmit={e => {e.preventDefault()
-              this.props.changeUser(this.state.currentuser)
+                this.loginCreator(this.state.userobj)
                 }}>
-                <select name="currentuser" value={this.state.value} onChange={this.handleChange}>
+                <select name="currentuser" value={this.state.value} onChange={this.selectChange}>
+                  {/* at a loss here, need to figure out a way to return the object instead of just a number */}
                       {this.props.allUsers.map(user => <option value={user.id}>{user.name}</option>)}
                 </select>  
                 <input type="submit" value="Take me back!" />
@@ -95,7 +105,8 @@ class Login extends React.Component{
 const MSP = (state) => {
     console.log(`MSP`,state)
     return {
-      allUsers: state.allUsers
+      allUsers: state.allUsers,
+      currentUser: state.currentUser,
     }
   }
   
