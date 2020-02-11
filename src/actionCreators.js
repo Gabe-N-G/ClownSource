@@ -11,12 +11,14 @@ const ANSWER = "ANSWER"
 const VIEWMADLIB = "VIEWMADLIB"
 const LOGOUT = "LOGOUT"
 const CHANGEUSER = "CHANGEUSER"
+const MAKEMADLIB = "MAKEMADLIB"
 
 
 const createClickCreator = () => ({type: CREATECLICK})
 const viewClickCreator = () => ({type: VIEWCLICK})
 const completeClickCreator = () => ({type: COMPLETECLICK})
 const logOutCreator = () => ({type: LOGOUT})
+const makeMadLibCreator = (value) => ({type: MAKEMADLIB, payload: {value}})
 const changeUserCreator = (value) => ({type: CHANGEUSER, payload: {value}})
 const createSubmitCreator = (value) => ({type: CREATESUBMIT, payload: {value}})
 const answerCreator = (value) => ({type: ANSWER, payload: {value}})
@@ -45,6 +47,7 @@ export {
     logOutCreator,
     createSubmitCreator,
     changeUserCreator,
+    makeMadLibCreator,
     getTemplates,
     getQuestions,
     getMadlibs,

@@ -52,10 +52,11 @@ let reducer = (prevState=defaultState, action) => {
                 return {...prevState,
                     currentUser: action.payload.value
                 }
-            // case 'COMPLETECLICK':
-            //     return {...prevState,
-            //             MadLibAction: "Complete"
-            //             }
+            case 'MAKEMADLIB':
+                console.log(action.payload.value)
+                return {...prevState,
+                        allMadlibs: [...prevState.allMadlibs, action.payload.value]
+                        }
             case 'CREATESUBMIT':
                 console.log(action)
                 return  {...prevState,

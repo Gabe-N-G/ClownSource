@@ -7,7 +7,9 @@ import {changeUserCreator} from '../actionCreators'
 class Login extends React.Component{
     
     state = {
-      userobj : ''
+      userobj : '',
+      
+      
     }
 
     handleChange = (e) => {
@@ -90,6 +92,7 @@ class Login extends React.Component{
                 this.props.changeUser(this.state.userobj)
                 }}>
                 <select name="currentuser" value={this.state.value} onChange={this.selectChange}>
+                      <option value=""></option>
                   {/* at a loss here, need to figure out a way to return the object instead of just a number */}
                       {this.props.allUsers.map(user => <option value={user.id}>{user.name}</option>)}
                 </select>  

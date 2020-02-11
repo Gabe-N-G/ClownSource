@@ -38,6 +38,8 @@ class MadLibCreator extends React.Component{
                         {/* eventually I'll have to map out more forms here. */}
                         <option value="test">Test</option>
                         <option value="resignation">Resignation</option>
+                        <option value="artist_statement_long">Artist Statement (long)</option>
+                        <option value="cover_letter_long">Cover Letter (long)</option>
                       </select>
                     </label>
                     <input type="submit" value="Send in the clowns" />

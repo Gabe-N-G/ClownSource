@@ -40,8 +40,8 @@ class MadLibView extends React.Component{
               
 
                 Here are ya malibs! Click to see!
-                {this.state.sortedMadlib.map(libs =><div> Title: {libs.template.title}|
-                                                        User: {libs.user.name}|
+                {this.state.sortedMadlib.map(libs =><div> Title: {libs.template.title}
+                                                          User: {libs.user.name}
                                                         <button onClick={() => this.props.handleClick(libs)}>view</button> 
                                                         <button onClick={() => this.madLibDeleter(libs.id)}>delete</button>
                                                     </div> ) }
