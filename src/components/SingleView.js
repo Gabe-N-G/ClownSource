@@ -30,7 +30,7 @@ class SingleView extends React.Component{
          window.emailjs.send(service_id, template_id, template_params)
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text)
-                    alert("Email sent!")
+                    alert(`Email sent! check ${mailer.toEmail}`)
                 }, function(error) {
                     alert('Email failed :( , try again?', error);
                 });

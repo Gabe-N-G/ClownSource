@@ -51,13 +51,13 @@ class Login extends React.Component{
             <br/>
             <form onSubmit={e => {e.preventDefault()
                 this.loginCreator(this.state)}}> 
-              <span>Name here:<input type="text" 
+              <span>Name here: <input type="text" 
                               onChange={this.handleChange}
                               name="name"
                               placeholder="name" 
                               value={this.state.value}/></span>
             <br/>
-              <label>Favorite color:  
+              <label>Favorite color:
                     <select name="color" value={this.state.value} onChange={this.handleChange}>
                               <option value=""></option>
                               <option value="Blue">Blue</option>
@@ -71,7 +71,7 @@ class Login extends React.Component{
               </label>
             <br/>
               <label>
-                <span >Favorite Font</span>
+                <span >Favorite font: </span>
                 <select name="font" value={this.state.value} onChange={this.handleChange}>
                   <option value=""></option>
                   <option value="Arial, Helvetica, sans-serif">Helvetica</option>
