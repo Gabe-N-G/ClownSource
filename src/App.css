@@ -20,12 +20,19 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: "Comic Sans MS", cursive, sans-serif;	
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+
+
+.Container{
+  background-color: darkcyan
 }
 
 @keyframes App-logo-spin {

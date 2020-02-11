@@ -2,10 +2,20 @@
 
 let defaultState = {
     //our centrailized state goes here
-    userName : '',
-    userColor: '',
-
-
+    //THE UNITED STATES
+    // userName : '~test~',
+    // userColor : 'blue',
+    // userFont : 'Comic Sans MS", cursive, sans-serif',
+    currentUser: '',
+    MadLibAction: 'Login',
+    selectForm: '',
+    allTemplates : [],
+    allQuestions : [],
+    allMadlibs: [],
+    allUsers: [],
+    answers: [],
+    viewForm: '',
+    viewMadlib: null
 }
 
 let reducer = (prevState=defaultState, action) => {
@@ -15,20 +25,92 @@ let reducer = (prevState=defaultState, action) => {
     //use prevstate to add chagnge state.
     //make sure your payload keys are in order
         switch(action.type){
-            case 'TEST':
-              return console.log ('testing 1.2.3.')
-                //to use () => this.dispatch.('TEST')
-            case `HANDLE_CHANGE`:
-              return console.log ('state : ${action.payload}')
-                // to use  (event) => this.dispatch(`FORM_TEST`, event.target.value)
-            case `ADD_TEXT`:
-            //   return console.log ({...prevState, text: "", thangs=[...this.state.things, this.state.text]})
-                //this is adding a text to state
-                //reset your text state here if you want to. (text : "")
-                //to use ()=> this.dispatch('ADD_TEXT')
+            case 'CREATECLICK':
+                return {...prevState, 
+                        MadLibAction: "Create",
+                        viewMadlib: null,
+                        answers: [],
+                        selectForm: ''
+                        }
+            case 'VIEWCLICK':
+                return  {...prevState, 
+                        MadLibAction: "View",
+                        viewMadlib: null,
+                        answers: [],
+                        selectForm: ''
+                        }
+            case 'LOGOUT':
+                return {...prevState,
+                        MadLibAction: "Login",
+                        viewMadlib: null,
+                        answers: [],
+                        selectForm: '',
+                        currentUser: ''
+                        }
+            case 'CHANGEUSER':
+                console.log(action.payload)
+                return {...prevState,
+                    currentUser: action.payload.value
+                }
+            case 'MAKEMADLIB':
+                console.log(action.payload.value)
+                return {...prevState,
+                        allMadlibs: [...prevState.allMadlibs, action.payload.value]
+                        }
+            case 'CREATESUBMIT':
+                console.log(action)
+                return  {...prevState,
+                        // MadLibAction: "Complete",
+                        selectForm: action.payload.value    
+                        }
+            case 'ANSWER':
+                console.log(action)
+                return {...prevState,
+                        MadLibAction: "Complete",
+                        answers: action.payload.value,
+                        }
+            case 'POSTMADLIB':
+                return {...prevState
+                            //send to store here
+                        }
+            case 'VIEWMADLIB':
+                return {...prevState,
+                        viewMadlib: action.payload.value
+                        }
+            //fetch command            
+            case 'GETTEMPLATES':
+                return {...prevState,
+                allTemplates: action.payload.templates
+                }
+            case 'GETQUESTIONS':
+                return {...prevState,
+                allQuestions: action.payload.questions
+                } 
+            case 'GETMADLIBS':
+                return {...prevState,
+                allMadlibs: action.payload.madlibs
+                }
+            case 'GETUSERS':
+                return {...prevState,
+                allUsers: action.payload.users
+                }
+            case 'DELETEMADLIB':
+                return {...prevState,
+                id: action.payload.id
+                }                  
             default:
                 return prevState //do what previously happens, just a good catchall.
     }
 }
+
+// componentDidMount(){
+//     fetch('http://localhost:3000/templates')
+//     .then(response => response.json())
+//     .then(data => this.setState({ allTemplates: data }));
+//     fetch('http://localhost:3000/quresions')
+//     .then(response => response.json())
+//     .then(data => this.setState({ allQuestions: data }));
+//   }
+
 
 export default reducer

@@ -5,9 +5,34 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: darkcyan
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.Navbar{
+  background: rgb(0,0,75);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(22,79,154,1) 10%, rgba(101,183,255,1) 100%);
+  text-align: center;
+  font-family: "Comic Sans MS", cursive, sans-serif;	
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Centerwindow{
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    background-color: lightgrey;
+    white-space: pre-line;
+  }
+
+.Test{
+  background-color: lightgrey;
+  white-space: pre-line;
 }
