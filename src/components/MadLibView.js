@@ -7,8 +7,13 @@ class MadLibView extends React.Component{
     
     state = {
        sortedMadlib : this.props.allMadlibs,
-  
+       name : "",
+       template: ""
     }
+
+    
+
+    
     
     madLibDeleter = (id) => {
         console.log(id)
@@ -19,17 +24,34 @@ class MadLibView extends React.Component{
 
         .then((removed) => this.setState({sortedMadlib : this.state.sortedMadlib.filter(deleted => deleted.id !== removed.id)}))
          
-        // .then((removeML) =>)
-        /*{id: 8, user: {…}, completed_text: "Hello WeWork, I am Gabe and Im ready to Go malding", template: {…}}
-            id: 8
-            user: {id: 1, name: "Gabe", color: "blue", font: "comic_sans", created_at: "2020-01-31T22:56:53.250Z", …}
-            completed_text: "Hello WeWork, I am Gabe and Im ready to Go malding"
-            template: {id: 8, title: "test", text: "Hello _, I am _ and Im ready to _", displaytext: "Hello (place), I am (name) and I’m ready to (verb).", created_at: "2020-02-04T19:58:14.937Z", …}
-            __proto__: Object
-        */    
-
-      
       }
+      
+    
+    handleChange(e,state){
+      this.setState({[e.target.name] : e.target.value})
+      if (e.target.name === "name"){
+        let newArray = this.props.allMadlibs.filter(thing => thing.user.id == e.target.value)
+        this.setState({sortedMadlib : newArray,
+                        template : ""})
+                       
+        document.getElementById("template").selectedIndex = 0
+
+      } else if (e.target.name === "template"){
+        console.log("templatechange")
+        let newArray = this.props.allMadlibs.filter(thing => thing.template.id == e.target.value)
+        this.setState({sortedMadlib : newArray,
+                      name: ""})
+              
+        document.getElementById("name").selectedIndex = 0
+      } 
+    }
+
+    clearSearch(e){
+      console.log("hi!")
+      this.setState({sortedMadlib: this.props.allMadlibs})
+      document.getElementById("template").selectedIndex = 0
+      document.getElementById("name").selectedIndex = 0
+    }
 
 
     render(){
@@ -37,16 +59,35 @@ class MadLibView extends React.Component{
         
         return(
             <div className="Centerwindow" >
-              
-
-                Here are ya malibs! Click to see!
-                
-                {this.state.sortedMadlib.map(libs =><div> Title: {libs.template.title}
-                                                          User: {libs.user.name}
-                                                        <button onClick={() => this.props.handleClick(libs)}>view</button> 
-                                                        <button onClick={() => this.madLibDeleter(libs.id)}>delete</button>
-                                                    </div> ) }
-                                                    
+                <h4 className="Top">Here are ya malibs! Click to see!</h4>
+                Sort by name: <select id="name" name="name" value={this.state.value} onChange={(e)=>this.handleChange(e,this.state)}>
+                                          <option value=""></option>
+                                          {this.props.allUsers.map(user => <option  value={user.id}>{user.name}</option>)}
+                              </select>
+                Sort by type: <select id="template" name="template" value={this.state.value} onChange={(e)=>this.handleChange(e,this.state)}>
+                                          <option value=""></option>              
+                                          {this.props.allTemplates.map(template => <option value={template.id}>{template.title}</option>)}
+                              </select>
+                <button onClick={(e)=>this.clearSearch(e,this.state)}> reset</button>
+                <br/>
+                <br/>
+                {/* <table> */}
+                <table style={{width : 500}}>
+                    <tr>
+                      <th>Title</th>
+                      <th>User</th>
+                      <th>Controls</th>
+                    </tr>
+                    <br/>
+                    {this.state.sortedMadlib.map(libs =>
+                      <tr style={{fontFamily : libs.user.font}}> 
+                          <td>{libs.template.title.toUpperCase()}</td>
+                          <td style={{color : libs.user.color}}>{libs.user.name}</td>
+                          <td><button onClick={() => this.props.handleClick(libs)}>view</button> 
+                              <button onClick={() => this.madLibDeleter(libs.id)}>delete</button>
+                          </td>
+                      </tr> ) }
+                </table>                                    
             </div>
         )
     }
@@ -57,6 +98,7 @@ const MSP = (state) => {
     return {
         allMadlibs: state.allMadlibs,
         allTemplates : state.allTemplates,
+        allUsers: state.allUsers,
         viewMadlib : state.viewMadLib
     }
   }

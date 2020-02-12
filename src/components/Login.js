@@ -43,8 +43,7 @@ class Login extends React.Component{
         console.log(this.state)
         return(
         <div className="Centerwindow">
-
-            <h1>Welcome to Clownsource.io!</h1>
+            <h1 className="Top">Welcome to Clownsource.io!</h1>
             <br/>
             Please enter your name and favorite color below so that we can connect you to our tiny car filled with talented, open-source, free-range clowns!
             <br/> 
@@ -83,7 +82,7 @@ class Login extends React.Component{
                 </select>
               </label>
               <p style = {{fontFamily : this.state.font}}>I, <span style = {{color : this.state.color}}>{this.state.name}</span> hereby grant permission to Clownsource.io to release (poorly) written documents in my name. </p>
-              <input type="submit" value="Ok?" />
+              <input className="Submit" type="submit" value="Ok?" />
               </form>
               <br/>
               Or have you been here before?
@@ -96,7 +95,7 @@ class Login extends React.Component{
                   {/* at a loss here, need to figure out a way to return the object instead of just a number */}
                       {this.props.allUsers.map(user => <option value={user.id}>{user.name}</option>)}
                 </select>  
-                <input type="submit" value="Take me back!" />
+                <input className="Submit" type="submit" value="Take me back!" />
               </form>  
         </div>
         )

@@ -12,12 +12,14 @@ const VIEWMADLIB = "VIEWMADLIB"
 const LOGOUT = "LOGOUT"
 const CHANGEUSER = "CHANGEUSER"
 const MAKEMADLIB = "MAKEMADLIB"
+const MAKETOVIEW = "MAKETOVIEW"
 
 
 const createClickCreator = () => ({type: CREATECLICK})
 const viewClickCreator = () => ({type: VIEWCLICK})
 const completeClickCreator = () => ({type: COMPLETECLICK})
 const logOutCreator = () => ({type: LOGOUT})
+const mtvCreator = () => ({type: MAKETOVIEW})
 const makeMadLibCreator = (value) => ({type: MAKEMADLIB, payload: {value}})
 const changeUserCreator = (value) => ({type: CHANGEUSER, payload: {value}})
 const createSubmitCreator = (value) => ({type: CREATESUBMIT, payload: {value}})
@@ -48,6 +50,7 @@ export {
     createSubmitCreator,
     changeUserCreator,
     makeMadLibCreator,
+    mtvCreator,
     getTemplates,
     getQuestions,
     getMadlibs,

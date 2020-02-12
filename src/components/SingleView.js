@@ -15,8 +15,6 @@ class SingleView extends React.Component{
 
     )
     
-    
-
     emailMaker(mailer){        
         console.log("email", mailer)
         let template_params = {
@@ -37,10 +35,10 @@ class SingleView extends React.Component{
     }
 
     //  in RUBY: params[:answers].each_value{|value| currenttemplate.text.sub!(/[_]/, value)}
-    render(){
-        
+    render(){    
         return(
             <div className="Centerwindow">
+                <h4 className="Top">Look at this masterpiece!</h4>
                 <h1 style = {{fontFamily : this.props.viewMadlib.user.font}}>{this.props.viewMadlib.template.title.toUpperCase()}</h1>
                 <h3 style = {{fontFamily : this.props.viewMadlib.user.font}}>
                     by: <span style = {{color : this.props.viewMadlib.user.color}}>{this.props.viewMadlib.user.name}</span></h3>
@@ -51,13 +49,14 @@ class SingleView extends React.Component{
                 this.emailMaker(this.state)}}>
                     <br/>
                     Send as an email?
+                    <br/>
                     <input type="text" 
                         onChange={this.handleChange} 
                         name="toEmail" 
-                        placeholder="email"
+                        placeholder="Email address here"
                         value={this.state.value}>
                     </input>
-                    <input type="submit" value="Send"></input>
+                    <input className="Submit" type="submit" value="Send"></input>
                 </form>
             <br/>
             {this.state.sent? "Sent!" :""}

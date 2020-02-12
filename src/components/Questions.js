@@ -26,26 +26,34 @@ class Questions extends React.Component{
     // console.log(questionArray)
         return (
             <div className="Test">
-                Riddle me these questions!~
+                <h3 className="Top2">Riddle me these questions!~</h3>
             <form onSubmit={e => {e.preventDefault()
                 this.props.handleSubmit(this.state)}
                 }>
-                <label>
-                  Fill in the blanks!
-                </label>
+                   
+                 <h3 className="Questiontop">
+                     Fill in the blanks!
+                 </h3>
+                <br/>
+                <table>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                        </tr>
                     {questionArray.map(question => 
-                      <div>
-                          Give me a {question.text}!
-                          <br/>    
-                          <input type="text" 
-                            onChange={this.handlechange}
-                            name={question.identifier}
-                            placeholder={question.text} 
-                            value={this.state.value}/>
-                      </div>
-                      )                                                
+                          <tr>
+                            <td>Give me a {question.text}!</td>
+                            <td><input type="text" 
+                              onChange={this.handlechange}
+                              name={question.identifier}
+                              placeholder={question.text} 
+                              value={this.state.value}/></td>
+                          </tr>
+                      )                                                      
                     }
-                <input type="submit" value="Submit" />
+                </table>
+                    <br/>
+                <input className="Submit" type="submit" value="Submit" />
                 
             </form>
             

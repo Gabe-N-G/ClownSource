@@ -6,7 +6,7 @@ let defaultState = {
     // userName : '~test~',
     // userColor : 'blue',
     // userFont : 'Comic Sans MS", cursive, sans-serif',
-    currentUser: '',
+    currentUser: {id: 35, name: "Test", color: "Yellow", font: "Arial, Helvetica, sans-serif"},
     MadLibAction: 'Login',
     selectForm: '',
     allTemplates : [],
@@ -55,8 +55,14 @@ let reducer = (prevState=defaultState, action) => {
             case 'MAKEMADLIB':
                 console.log(action.payload.value)
                 return {...prevState,
-                        allMadlibs: [...prevState.allMadlibs, action.payload.value]
+                        allMadlibs: [...prevState.allMadlibs, action.payload.value],
+                        viewMadlib: action.payload.value
                         }
+            case 'MAKETOVIEW':
+                return{...prevState,
+                        MadLibAction: "View"
+                
+                }
             case 'CREATESUBMIT':
                 console.log(action)
                 return  {...prevState,

@@ -13,6 +13,44 @@ code {
     monospace;
 }
 
+button{
+  border-style: outset;
+}
+
+table{
+  margin-left: 50px ;
+  width: 40%;
+}
+
+.Submit{
+  border-style: outset;
+}
+
+.Top{
+  color: white;
+  background-color: mediumblue;
+  padding: 10px;
+  margin-top: 0px;
+  margin-left: -22px;
+  margin-right: -22px;
+  max-width: 200%;
+}
+
+.Top2{
+  color: white;
+  background-color: mediumblue;
+  padding: 10px;
+  margin-top: 0px;
+  margin-left: 1px;
+  margin-right: 3px;
+  max-width: 200%;
+}
+
+.Questiontop{
+  text-align: center;
+
+}
+
 .Navbar{
   background: rgb(0,0,75);
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(22,79,154,1) 10%, rgba(101,183,255,1) 100%);
@@ -24,15 +62,26 @@ code {
 
 .Centerwindow{
     position: fixed;
-    top: 40%;
+    border-style: outset;
+    padding-top: 0px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    top: 20%;
     left: 50%;
     /* bring your own prefixes */
-    transform: translate(-50%, -50%);
+    transform: translate(-50%);
     background-color: lightgrey;
     white-space: pre-line;
   }
 
 .Test{
   background-color: lightgrey;
+  margin-top: 5%;
+  margin-left: 25%;
+  margin-right: 25%;
   white-space: pre-line;
+  /* transform: translate(-50%); */
+  border-style: outset;
+  max-width: 100%;
 }

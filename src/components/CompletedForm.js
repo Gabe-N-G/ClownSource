@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import {createClickCreator, makeMadLibCreator} from '../actionCreators'
+import {createClickCreator, makeMadLibCreator, mtvCreator} from '../actionCreators'
 
 class CompletedForm extends React.Component{
     
@@ -55,6 +55,7 @@ class CompletedForm extends React.Component{
         return(
          
             <div className="Centerwindow">
+              <h4 className="Top">Clowns sent!</h4>
                  {/* {this.props.selectForm.displaytext} */}
                  <br/>
                  And your answer is...
@@ -63,7 +64,8 @@ class CompletedForm extends React.Component{
                   {this.state.complete? this.state.newMadlib : this.props.selectForm.text}
                  {/* Hello {this.props.answers.test_1}, I am {this.props.answers.test_2} and I'm ready to {this.props.answers.test_3}  */}
                  </p>  
-                {this.state.complete? <button onClick={this.props.create}>go again?</button>:<button onClick={(props)=>this.madLibCreator(props)}>Send your answer!?</button> } 
+                {this.state.complete? <button onClick={this.props.create}>Go again?</button>:<button onClick={(props)=>this.madLibCreator(props)}>Send your answer!?</button> } 
+                {this.state.complete? <button onClick={this.props.mtv}>View and Email?</button>:""}
             </div>
         )
     }
@@ -76,7 +78,9 @@ const MSP = (state) => {
         selectForm : state.selectForm,
         userName:  state.userName,
         currentUser: state.currentUser,
-        allMadlibs: state.allMadlibs
+        allMadlibs: state.allMadlibs,
+        viewMadlib: state.viewMadlib
+
     }
   }
   
@@ -84,7 +88,8 @@ const MDP = (dispatch) => {
     // console.log(`MDP`, dispatch)
     return {
       create: () => dispatch(createClickCreator()),
-      makeMadLib: (value) => dispatch(makeMadLibCreator(value))
+      makeMadLib: (value) => dispatch(makeMadLibCreator(value)),
+      mtv: () => dispatch(mtvCreator())
     }
   }
   

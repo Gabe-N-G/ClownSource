@@ -25,7 +25,7 @@ class MadLibCreator extends React.Component{
     console.log (myTemplate)
       return(
           <div className='Centerwindow'>
-              <p>  LETS PLAY A GAME {this.props.userName}</p>
+              <h4 className="Top">  LETS PLAY A GAME {this.props.userName}</h4>
               <form onSubmit={e => {
                 e.preventDefault();
                 //passing up the object of the template instead of the value here.
@@ -44,10 +44,10 @@ class MadLibCreator extends React.Component{
                         <option value="linkedin_summary">LinkedIn summary</option>
                       </select>
                     </label>
-                    <input type="submit" value="Send in the clowns" />
+                    <input className="Submit" type="submit" value="Send in the clowns" />
                   </form>
                   <p>                  
-                  {this.state.value? `${myTemplate[0].displaytext}` : "you didn't pick a template" }
+                  {this.state.value? `${myTemplate[0].displaytext}` : "You didn't pick a template" }
                   </p>
               
           </div>
