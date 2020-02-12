@@ -41,7 +41,10 @@ class MadLibCreator extends React.Component{
                         <option value="artist_statement_long">Artist Statement (long)</option>
                         <option value="cover_letter_long">Cover Letter (long)</option>
                         <option value="dating_app_profile">Dating app profile</option>
+                        <option value="dating_app_message">Dating app message</option>
                         <option value="linkedin_summary">LinkedIn summary</option>
+                        <option value="funny_obit">Obituary(funny)</option>
+                      
                       </select>
                     </label>
                     <input className="Submit" type="submit" value="Send in the clowns" />
