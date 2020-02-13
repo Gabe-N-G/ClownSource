@@ -1,19 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux';
 
-
-class x extends React.Component{
-    
+class x extends React.Component{    
     state = {
        
     }
-
-
-    render(){
-        
+    render(){   
         return(
         <div>
-            Testing 1 2 3
+            "Hello world!"
         </div>
         )
     }
@@ -22,14 +17,15 @@ class x extends React.Component{
 const MSP = (state) => {
     // console.log(`MSP`,state)
     return {
-      
+      key: state.key
     }
   }
   
 const MDP = (dispatch) => {
     // console.log(`MDP`, dispatch)
     return {
-
+      stateChange: () => dispatch(stateChangeCreator()),
+      changeWValue: (value) => dispatch(changeWV(value))
     }
   }
   

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import {changeUserCreator} from '../actionCreators'
+import {changeUserCreator, createClickCreator} from '../actionCreators'
 
 
 
@@ -8,7 +8,7 @@ class Login extends React.Component{
     
     state = {
       userobj : '',
-      
+      logged: false
       
     }
 
@@ -36,6 +36,7 @@ class Login extends React.Component{
       .then((response) => response.json())
       // .then((thing) => console.log("saved", thing.id))
       .then((me) => this.props.changeUser(me)) 
+      this.setState({logged: true})
      
     }
 
@@ -84,11 +85,13 @@ class Login extends React.Component{
               <p style = {{fontFamily : this.state.font}}>I, <span style = {{color : this.state.color}}>{this.state.name}</span> hereby grant permission to Clownsource.io to release (poorly) written documents in my name. </p>
               <input className="Submit" type="submit" value="Ok?" />
               </form>
+              {this.state.logged?<button onClick={this.props.create}>LETS GO!</button>: ""}
               <br/>
               Or have you been here before?
               <br/>
               <form form onSubmit={e => {e.preventDefault()
                 this.props.changeUser(this.state.userobj)
+                this.setState({logged: true})
                 }}>
                 <select name="currentuser" value={this.state.value} onChange={this.selectChange}>
                       <option value=""></option>
@@ -115,7 +118,8 @@ const MSP = (state) => {
 const MDP = (dispatch) => {
     // console.log(`MDP`, dispatch)
     return {
-      changeUser:  (value) => dispatch(changeUserCreator(value))
+      changeUser:  (value) => dispatch(changeUserCreator(value)),
+      create: () => dispatch(createClickCreator())
     }
   }
   

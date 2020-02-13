@@ -28,11 +28,15 @@ class MadLibView extends React.Component{
       
     
     handleChange(e,state){
+      
+      
       this.setState({[e.target.name] : e.target.value})
+
       if (e.target.name === "name"){
         let newArray = this.props.allMadlibs.filter(thing => thing.user.id == e.target.value)
         this.setState({sortedMadlib : newArray,
                         template : ""})
+                      
                        
         document.getElementById("template").selectedIndex = 0
 
@@ -44,6 +48,10 @@ class MadLibView extends React.Component{
               
         document.getElementById("name").selectedIndex = 0
       } 
+
+      if(e.target.value === ""){
+        this.setState({sortedMadlib: this.props.allMadlibs})
+      }
     }
 
     clearSearch(e){

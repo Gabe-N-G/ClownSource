@@ -38,8 +38,8 @@ class MadLibCreator extends React.Component{
                         {/* eventually I'll have to map out more forms here. */}
                         <option value="test">Test</option>
                         <option value="resignation">Resignation</option>
-                        <option value="artist_statement_long">Artist Statement (long)</option>
-                        <option value="cover_letter_long">Cover Letter (long)</option>
+                        <option value="artist_statement_long">Artist Statement</option>
+                        <option value="cover_letter_long">Cover Letter</option>
                         <option value="dating_app_profile">Dating app profile</option>
                         <option value="dating_app_message">Dating app message</option>
                         <option value="linkedin_summary">LinkedIn summary</option>
@@ -71,6 +71,7 @@ const MDP = (dispatch) => {
     // console.log(`MDP`, dispatch) 
     return {
       handleSubmit:  (value) => dispatch(createSubmitCreator(value)),
+      
     }
   }
   
