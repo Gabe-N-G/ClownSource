@@ -87,6 +87,7 @@ class Login extends React.Component{
               </form>
               {this.state.logged?<button onClick={this.props.create}>LETS GO!</button>: ""}
               <br/>
+              <br/>
               Or have you been here before?
               <br/>
               <form form onSubmit={e => {e.preventDefault()
@@ -95,7 +96,6 @@ class Login extends React.Component{
                 }}>
                 <select name="currentuser" value={this.state.value} onChange={this.selectChange}>
                       <option value=""></option>
-                  {/* at a loss here, need to figure out a way to return the object instead of just a number */}
                       {this.props.allUsers.map(user => <option value={user.id}>{user.name}</option>)}
                 </select>  
                 <input className="Submit" type="submit" value="Take me back!" />
