@@ -26,7 +26,7 @@ class Login extends React.Component{
 
     loginCreator(login){
       console.log("saved!", login)
-      fetch('http://localhost:3000/users',{
+      fetch('https://clownsource-backend.herokuapp.com/users',{
         method: 'POST',
         headers:{
           'Content-Type': 'application/json'

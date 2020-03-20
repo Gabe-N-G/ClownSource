@@ -10,7 +10,7 @@ import {viewClickCreator, createClickCreator, getUsers, logOutCreator} from '../
 class Navbar extends React.Component{
 
     componentDidMount(){
-        fetch('http://localhost:3000/users')
+        fetch('https://clownsource-backend.herokuapp.com/users')
         .then(response => response.json())
         .then(users => {this.props.getUsers(users)});
     }

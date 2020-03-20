@@ -17,7 +17,7 @@ class MadLibView extends React.Component{
     
     madLibDeleter = (id) => {
         console.log(id)
-        fetch(`http://localhost:3000/madlibs/${id}`,{
+        fetch(`https://clownsource-backend.herokuapp.com/madlibs/${id}`,{
           method: 'DELETE',
         })
         .then((response) => response.json())
