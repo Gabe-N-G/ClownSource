@@ -16,7 +16,7 @@ class CompletedForm extends React.Component{
 
     madLibCreator(props){ 
         console.log(this.props.answers)
-        fetch('http://localhost:3000/madlibs',{
+        fetch('https://clownsource-backend.herokuapp.com/madlibs',{
           method: 'POST',
           headers:{
             'Content-Type': 'application/json'

@@ -12,13 +12,13 @@ import Login from '../components/Login'
 class MainContainer extends React.Component{
     
     componentDidMount(){
-        fetch('https://clownsource-backend.herokuapp.com//templates')
+        fetch('https://clownsource-backend.herokuapp.com/templates')
         .then(response => response.json())
         .then(templates => {this.props.getTemplates(templates)});
-        fetch('https://clownsource-backend.herokuapp.com//questions')
+        fetch('https://clownsource-backend.herokuapp.com/questions')
         .then(response => response.json())
         .then(questions => {this.props.getQuestions(questions)});
-        fetch('https://clownsource-backend.herokuapp.com//madlibs')
+        fetch('https://clownsource-backend.herokuapp.com/madlibs')
         .then(response => response.json())
         .then(madlibs => {this.props.getMadlibs(madlibs)});      
   }
