@@ -14,11 +14,10 @@
     "react-scripts": "3.3.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "serve": "^10.0.1",
-    "author": "Gabriel Gutierrez"
+    "serve": "^10.0.1"
   },
   "scripts": {
-    "start": "serve",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -40,5 +39,6 @@
   },
   "devDependencies": {
     "redux-devtools": "^3.5.0"
-  }
+  },
+  "author": "gg"
 }
